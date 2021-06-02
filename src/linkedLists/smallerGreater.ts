@@ -4,7 +4,7 @@ const swapNodes = (a: DoublyLinkedNode<any>, b: DoublyLinkedNode<any>) => {
 	const temp = b.data;
 
 	b.data = a.data;
-	a.data = temp.data;
+	a.data = temp;
 };
 
 export default function smallerGreater(headNode: DoublyLinkedList<number>, pivot: number): DoublyLinkedList<number> {
@@ -31,10 +31,7 @@ export default function smallerGreater(headNode: DoublyLinkedList<number>, pivot
 		if (p1.data < pivot) {
 			p1 = p1.next;
 		} else if (p2.data <= pivot) {
-			const temp = p1.data;
-
-			p1.data = p2.data;
-			p2.data = temp;
+			swapNodes(p1, p2);
 
 			if (p2.prev === p1) {
 				return headNode;
