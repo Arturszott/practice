@@ -1,11 +1,8 @@
-interface SinglyLinkedNode {
-	data: any;
-	next: null | SinglyLinkedNode;
-}
+import { SinglyLinkedNode } from '../types';
 
-export default function createSinglyLinkedList(array: any[]): SinglyLinkedNode | null {
-	let head: SinglyLinkedNode | null = null;
-	let currentNode: SinglyLinkedNode | null = null;
+export default function createSinglyLinkedList<T = any>(array: any[]): SinglyLinkedNode<T> | null {
+	let head: SinglyLinkedNode<T> | null = null;
+	let currentNode: SinglyLinkedNode<T> | null = null;
 
 	for (let i = 0; i < array.length; i++) {
 		if (currentNode) {
