@@ -1,6 +1,6 @@
-import { SinglyLinkedList, DoublyLinkedList } from '../types';
+import { SinglyLinkedList, DoublyLinkedList, DoublyLinkedNode } from '../types';
 
-export const printListAsArray = (list: DoublyLinkedList | SinglyLinkedList) => {
+const listToArray = (list: DoublyLinkedList | SinglyLinkedList) => {
 	const array = [];
 	let p1 = list;
 
@@ -10,15 +10,45 @@ export const printListAsArray = (list: DoublyLinkedList | SinglyLinkedList) => {
 		p1 = p1.next;
 	}
 
+	return array;
+};
+
+export const printListAsArray = (list: DoublyLinkedList | SinglyLinkedList) => {
+	const array = listToArray(list);
+
 	console.log(array);
 };
 
-export const checkSolution = (result: DoublyLinkedList<number>, expected: DoublyLinkedList<number>) => {
-	while (expected && result) {
-		expect(result.data).toBe(expected.data);
-		result = result.next;
-		expected = expected.next;
+export const appendDoubleNode = <T>(l: DoublyLinkedList<T>, data: any): DoublyLinkedNode<T> => {
+	if (l === null) {
+		return {
+			data,
+			prev: l,
+			next: null
+		};
 	}
 
-	expect(result).toBe(null);
+	if (l.next === null) {
+		l.next = {
+			data,
+			prev: l,
+			next: null
+		};
+	} else {
+		while (l.next !== null) {
+			l = l.next;
+		}
+
+		l.next = {
+			data,
+			prev: l,
+			next: null
+		};
+	}
+
+	return l;
+};
+
+export const checkSolution = (result: DoublyLinkedList<number>, expected: DoublyLinkedList<number>) => {
+	expect(listToArray(result).join('')).toStrictEqual(listToArray(expected).join(''));
 };
