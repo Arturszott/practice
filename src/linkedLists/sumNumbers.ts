@@ -25,25 +25,30 @@ export default function sumNumbers(a: DoublyLinkedList<number>, b: DoublyLinkedL
 
 	d = sum;
 
-	while (b && d) {
-		d.data = d.data + b.data;
+	while (b || d) {
+		if (d) {
+			d.data = d.data + (b?.data || 0);
 
-		if (d.next === null && b.next) {
-			d = appendDoubleNode<number>(d, 0);
-		}
-
-		if (d.data > 9) {
-			if (d.next) {
-				d.next.data += 1;
-			} else {
-				d = appendDoubleNode<number>(d, 1);
+			if (d.next === null && b?.next) {
+				d = appendDoubleNode<number>(d, 0);
 			}
 
-			d.data = d.data % 10;
-		}
+			if (d.data > 9) {
+				if (d.next) {
+					d.next.data += 1;
+				} else {
+					d = appendDoubleNode<number>(d, 1);
+				}
 
-		b = b.next;
-		d = d.next;
+				d.data = d.data % 10;
+			}
+
+			if (b) {
+				b = b.next;
+			}
+
+			d = d.next;
+		}
 	}
 
 	return sum;

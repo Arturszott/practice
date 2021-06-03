@@ -18,6 +18,10 @@ const runTest = (a: number, b: number) => {
 
 describe('sumNumbers from reversed linked lists', () => {
 	it('sums two linked lists', () => {
-		runTest(12, 29);
+		// runTest(12, 29);
+		// runTest(99, 11);
+		// runTest(0, 0);
+		runTest(999, 9);
+		// runTest(9, 999);
 	});
 });
