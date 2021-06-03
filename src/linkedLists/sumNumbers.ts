@@ -53,3 +53,29 @@ export default function sumNumbers(a: DoublyLinkedList<number>, b: DoublyLinkedL
 
 	return sum;
 }
+
+export function sumNumbersRecursive(
+	a: DoublyLinkedList<number>,
+	b: DoublyLinkedList<number>,
+	c: number = 0
+): DoublyLinkedList<number> {
+	if (!a && !b && !c) {
+		return null;
+	}
+
+	const sum = createDoublyLinkedList([0]) as DoublyLinkedNode<number>;
+
+	sum.data = (a?.data || 0) + (b?.data || 0) + c;
+
+	let rest = 0;
+
+	if (sum.data > 9) {
+		rest = 1;
+	}
+
+	sum.data = sum.data % 10;
+
+	sum.next = sumNumbersRecursive(a?.next || null, b?.next || null, rest);
+
+	return sum;
+}
