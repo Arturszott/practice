@@ -50,5 +50,5 @@ export const appendDoubleNode = <T>(l: DoublyLinkedList<T>, data: any): DoublyLi
 };
 
 export const checkSolution = (result: DoublyLinkedList<number>, expected: DoublyLinkedList<number>) => {
-	expect(listToArray(result).join('')).toStrictEqual(listToArray(expected).join(''));
+	expect(listToArray(result).reverse().join('')).toStrictEqual(listToArray(expected).reverse().join(''));
 };
