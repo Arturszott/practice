@@ -79,3 +79,17 @@ export const getListSizeAndTail = (
 		tail: list
 	};
 };
+
+export const getNthNode = <T = any>(list: AnyList<T>, n: number): AnyList<T> => {
+	while (n) {
+		if (list === null) {
+			return null;
+		}
+
+		list = list.next;
+
+		n--;
+	}
+
+	return list;
+};
