@@ -1,4 +1,4 @@
-import { Stack } from './utils';
+import Stack from './Stack';
 
 describe('Stack', () => {
 	it('should stack items', () => {

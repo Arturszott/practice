@@ -1,4 +1,5 @@
-import { Stack, Queue } from './utils';
+import Queue from './Queue';
+import { fillQueue } from './utils';
 
 describe('Queue', () => {
 	it('should queue items', () => {
@@ -6,9 +7,7 @@ describe('Queue', () => {
 
 		const q = new Queue();
 
-		for (let n of numbers) {
-			q.push(n);
-		}
+		fillQueue<number>(q, numbers);
 
 		for (let n of numbers) {
 			expect(q.pop().data).toBe(n);
@@ -20,9 +19,7 @@ describe('Queue', () => {
 
 		const q = new Queue();
 
-		for (let n of numbers) {
-			q.push(n);
-		}
+		fillQueue(q, numbers);
 
 		q.pop();
 

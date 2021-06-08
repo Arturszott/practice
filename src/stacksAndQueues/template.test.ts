@@ -1,4 +1,5 @@
-import { Stack, Queue } from './utils';
+import Stack from './Stack';
+import Queue from './Queue';
 
 describe('template', () => {
 	it('should ', () => {});
