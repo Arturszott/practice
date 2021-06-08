@@ -1,4 +1,4 @@
-import { SinglyLinkedList, DoublyLinkedList, DoublyLinkedNode, AnyList } from '../types';
+import { SinglyLinkedList, DoublyLinkedList, DoublyLinkedNode, AnyList, SinglyLinkedNode } from '../types';
 
 const listToArray = (list: AnyList) => {
 	const array = [];
@@ -27,7 +27,7 @@ export const createDoubleNode = <T = any>(data: T) => {
 	};
 };
 
-export const createSingleNode = <T = any>(data: T) => {
+export const createSingleNode = <T = any>(data: T): SinglyLinkedNode => {
 	return {
 		data,
 		next: null
