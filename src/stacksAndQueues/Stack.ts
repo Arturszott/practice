@@ -2,7 +2,7 @@ import { createSingleNode } from '../linkedLists/utils';
 import { SinglyLinkedList } from '../types';
 
 export default class Stack<T = any> {
-	private top: SinglyLinkedList<T>;
+	protected top: SinglyLinkedList<T>;
 
 	constructor() {
 		this.top = null;
