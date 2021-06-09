@@ -3,9 +3,11 @@ import { SinglyLinkedList } from '../types';
 
 export default class Stack<T = any> {
 	protected top: SinglyLinkedList<T>;
+	private _size: number;
 
 	constructor() {
 		this.top = null;
+		this._size = 0;
 	}
 
 	push(item: T) {
@@ -14,6 +16,8 @@ export default class Stack<T = any> {
 		if (!this.isEmpty()) {
 			node.next = this.top;
 		}
+
+		this._size++;
 
 		this.top = node;
 	}
@@ -37,10 +41,16 @@ export default class Stack<T = any> {
 
 		node.next = null;
 
+		this._size--;
+
 		return node;
 	}
 
 	isEmpty() {
 		return !Boolean(this.top);
+	}
+
+	get size() {
+		return this._size;
 	}
 }

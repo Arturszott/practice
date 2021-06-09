@@ -2,8 +2,8 @@ import { createSingleNode } from '../linkedLists/utils';
 import { SinglyLinkedList, SinglyLinkedNode } from '../types';
 
 export default class Queue<T> {
-	private first: SinglyLinkedList;
-	private last: SinglyLinkedList;
+	protected first: SinglyLinkedList;
+	protected last: SinglyLinkedList;
 
 	constructor() {
 		this.first = null;
